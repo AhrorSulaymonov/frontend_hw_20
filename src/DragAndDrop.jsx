@@ -30,7 +30,9 @@ function DragAndDrop(props) {
           setThirdUsersList(
             thirdUsersList.filter((u) => u.name !== selectedUser.name)
           );
-          setUsers([...users, selectedUser]);
+          !users.includes(selectedUser)
+            ? setUsers([...users, selectedUser])
+            : setUsers(users);
         }}
         style={{ width: "300px" }}
         id="secondList"
@@ -54,7 +56,9 @@ function DragAndDrop(props) {
           setThirdUsersList(
             thirdUsersList.filter((u) => u.name !== selectedUser.name)
           );
-          setSecondUsersList([...secondUsersList, selectedUser]);
+          !secondUsersList.includes(selectedUser)
+            ? setSecondUsersList([...secondUsersList, selectedUser])
+            : setSecondUsersList(secondUsersList);
         }}
         style={{ width: "300px" }}
         id="secondList"
@@ -78,7 +82,9 @@ function DragAndDrop(props) {
           setSecondUsersList(
             secondUsersList.filter((u) => u.name !== selectedUser.name)
           );
-          setThirdUsersList([...thirdUsersList, selectedUser]);
+          !thirdUsersList.includes(selectedUser)
+            ? setThirdUsersList([...thirdUsersList, selectedUser])
+            : setThirdUsersList(thirdUsersList);
         }}
         style={{ width: "300px" }}
         id="thirddList"
