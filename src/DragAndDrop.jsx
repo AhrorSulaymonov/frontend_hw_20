@@ -21,7 +21,20 @@ function DragAndDrop(props) {
 
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ width: "300px" }}>
+      <div
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={() => {
+          setSecondUsersList(
+            secondUsersList.filter((u) => u.name !== selectedUser.name)
+          );
+          setThirdUsersList(
+            thirdUsersList.filter((u) => u.name !== selectedUser.name)
+          );
+          setUsers([...users, selectedUser]);
+        }}
+        style={{ width: "300px" }}
+        id="secondList"
+      >
         <p>Users List 1:</p>
         {users.map((user) => (
           <p
